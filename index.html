@@ -420,7 +420,21 @@
     </div>
   </div>
 </div>
-
+<!-- MINI MODAL PRODUCTO -->
+<div class="mini-modal-overlay" id="mini-modal-prod">
+  <div class="mini-modal">
+    <div class="mini-modal-titulo" id="mm-nombre">Producto</div>
+    <div class="mini-modal-sub" id="mm-stock"></div>
+    <div class="mini-modal-fields">
+      <div class="field"><label>Cantidad</label><input type="number" id="mm-cant" value="1" min="1" onkeydown="if(event.key==='Enter')confirmarMiniModal()"></div>
+      <div class="field" id="mm-precio-field"><label>Precio unitario ($)</label><input type="number" id="mm-precio" placeholder="0" min="0" onkeydown="if(event.key==='Enter')confirmarMiniModal()"></div>
+    </div>
+    <div class="mini-modal-footer">
+      <button class="btn btn-sm" onclick="cerrarMiniModal()">Cancelar</button>
+      <button class="btn btn-primary btn-sm" onclick="confirmarMiniModal()">Agregar</button>
+    </div>
+  </div>
+</div>
 <script>
 // ── USUARIOS ──────────────────────────────────────────────────
 const USUARIOS = [
@@ -942,21 +956,7 @@ function refresh(){updateStats();renderTable();poblarSelects();}
 
 setInterval(async()=>{try{await loadData();refresh();setSyncBadge(true);}catch(e){setSyncBadge(false);}},15000);
 
-<!-- MINI MODAL PRODUCTO -->
-<div class="mini-modal-overlay" id="mini-modal-prod">
-  <div class="mini-modal">
-    <div class="mini-modal-titulo" id="mm-nombre">Producto</div>
-    <div class="mini-modal-sub" id="mm-stock"></div>
-    <div class="mini-modal-fields">
-      <div class="field"><label>Cantidad</label><input type="number" id="mm-cant" value="1" min="1" onkeydown="if(event.key==='Enter')confirmarMiniModal()"></div>
-      <div class="field" id="mm-precio-field"><label>Precio unitario ($)</label><input type="number" id="mm-precio" placeholder="0" min="0" onkeydown="if(event.key==='Enter')confirmarMiniModal()"></div>
-    </div>
-    <div class="mini-modal-footer">
-      <button class="btn btn-sm" onclick="cerrarMiniModal()">Cancelar</button>
-      <button class="btn btn-primary btn-sm" onclick="confirmarMiniModal()">Agregar</button>
-    </div>
-  </div>
-</div>
+
 </script>
 </body>
 </html>
